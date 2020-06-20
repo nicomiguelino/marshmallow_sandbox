@@ -12,6 +12,7 @@ class AlbumSchema(marshmallow.Schema):
     artist = marshmallow.fields.Nested(ArtistSchema())
 
 def run():
+    """Having a taste of marshmallow..."""
     bowie = { 'name': 'David Bowie' }
     album = {
         'artist': bowie,

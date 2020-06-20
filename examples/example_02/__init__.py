@@ -2,9 +2,8 @@ import datetime as dt
 import os
 from pprint import pprint
 
-from marshmallow import Schema, fields
-
 from examples.decorators import example
+from examples.schemas import UserSchema
 
 
 class User:
@@ -15,12 +14,6 @@ class User:
 
     def __repr__(self):
         return "<User(name={self.name!r})>".format(self=self)
-
-
-class UserSchema(Schema):
-    name = fields.Str()
-    email = fields.Email()
-    created_at = fields.DateTime()
 
 
 @example(title="example_02")

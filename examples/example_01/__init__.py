@@ -1,18 +1,9 @@
 from datetime import date
 from pprint import pprint
 
-import marshmallow
-
 from examples.decorators import example
+from examples.schemas import AlbumSchema
 
-
-class ArtistSchema(marshmallow.Schema):
-    name = marshmallow.fields.Str()
-
-class AlbumSchema(marshmallow.Schema):
-    title = marshmallow.fields.Str()
-    release_date = marshmallow.fields.Date()
-    artist = marshmallow.fields.Nested(ArtistSchema())
 
 @example(title="example_01")
 def run():

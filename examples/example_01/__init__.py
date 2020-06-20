@@ -3,6 +3,9 @@ from pprint import pprint
 
 import marshmallow
 
+from examples.decorators import example
+
+
 class ArtistSchema(marshmallow.Schema):
     name = marshmallow.fields.Str()
 
@@ -11,6 +14,7 @@ class AlbumSchema(marshmallow.Schema):
     release_date = marshmallow.fields.Date()
     artist = marshmallow.fields.Nested(ArtistSchema())
 
+@example(title="example_01")
 def run():
     """Having a taste of marshmallow..."""
     bowie = { 'name': 'David Bowie' }

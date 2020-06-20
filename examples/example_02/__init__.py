@@ -4,6 +4,8 @@ from pprint import pprint
 
 from marshmallow import Schema, fields
 
+from examples.decorators import example
+
 
 class User:
     def __init__(self, name, email):
@@ -21,6 +23,7 @@ class UserSchema(Schema):
     created_at = fields.DateTime()
 
 
+@example(title="example_02")
 def run():
     """Serializing Objects ("Dumping")"""
     user = User(name="Monty", email="monty@python.org")

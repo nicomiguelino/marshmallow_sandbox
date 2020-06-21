@@ -5,7 +5,7 @@ from examples.decorators import example
 from examples.schemas import AlbumSchema
 
 
-@example(title="example_01")
+@example(title="Example 01")
 def run():
     """Having a taste of marshmallow..."""
     bowie = { 'name': 'David Bowie' }

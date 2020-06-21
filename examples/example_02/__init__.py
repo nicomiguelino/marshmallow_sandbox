@@ -6,7 +6,7 @@ from examples.decorators import example
 from examples.schemas import UserSchema, User
 
 
-@example(title="example_02")
+@example(title="Example 02")
 def run():
     """Serializing Objects ("Dumping")"""
     user = User(name="Monty", email="monty@python.org")

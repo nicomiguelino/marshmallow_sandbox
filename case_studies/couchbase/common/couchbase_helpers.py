@@ -4,12 +4,6 @@ from couchbase.cluster import Cluster, ClusterOptions
 from couchbase_core.cluster import PasswordAuthenticator
 
 
-"""Improvement Items
-- You could let marshmallow do the serialization/deserialization. Refer to
-  https://marshmallow.readthedocs.io/en/stable/ for documentation.
-- Add support for flushing buckets.
-"""
-
 class CouchbaseConfig:
     USERNAME = "Administrator"
     PASSWORD = "Administrator"
@@ -27,3 +21,9 @@ class CouchbaseHelper:
 
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
+
+    @classmethod
+    def create(cls, obj, schema_cls):
+        schema = schema_cls()
+        result = schema.dump(obj)
+        cls.collection.upsert(str(uuid.uuid4()), result)

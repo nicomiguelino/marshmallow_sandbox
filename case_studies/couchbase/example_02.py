@@ -27,16 +27,12 @@ class UserSchema(Schema):
         return User(**data)
 
 
-def create_user():
-    user = User(name="Phum Viphurit", email="phum.viphurit@example.com")
-    result = UserSchema().dump(user)
-
-    print(type(result))
-    pprint(result)
-
-    CouchbaseHelper.collection.upsert(str(uuid.uuid4()), result)
-
-
-
 if __name__ == "__main__":
-    create_user()
+    users = [
+        User(name="Phum Viphurit", email="phum.viphurit@example.com"),
+        User(name="Lindsey Jordan", email="snail.mail@example.com"),
+        User(name="Hazel English", email="hazel.english@example.com")
+    ]
+
+    for user in users:
+        CouchbaseHelper.create(user, UserSchema)

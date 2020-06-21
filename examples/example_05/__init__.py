@@ -1,9 +1,7 @@
-from pprint import pprint
-
 from marshmallow import ValidationError
 
 from examples.decorators import example
-from examples.schemas.user import User, UserSchema
+from examples.schemas.user import UserSchema
 
 
 @example(title="Example 05")

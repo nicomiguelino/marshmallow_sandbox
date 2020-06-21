@@ -3,16 +3,6 @@ import datetime as dt
 from marshmallow import Schema, fields
 
 
-class ArtistSchema(Schema):
-    name = fields.Str()
-
-
-class AlbumSchema(Schema):
-    title = fields.Str()
-    release_date = fields.Date()
-    artist = fields.Nested(ArtistSchema())
-
-
 class User:
     def __init__(self, name, email):
         self.name = name
